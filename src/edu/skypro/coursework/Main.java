@@ -35,7 +35,6 @@ public class Main {
 
         //printEmployeesIfTheySalaryLessThen(20_000);
         //printEmployeesIfTheySalaryMoreThen(70_000);
-
     }
 
 
