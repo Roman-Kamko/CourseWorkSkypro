@@ -33,15 +33,36 @@ public class Employee {
     }
 
     public void setDepartment(int department) {
+        if (department < 1 || department > 5) {
+            System.out.println("Не верно задан отдел");
+            return;
+        }
         this.department = department;
     }
 
     public void setSalary(double salary) {
+        if (salary <= 0) {
+            System.out.println("Вы ввели отрицательное значение");
+            return;
+        }
         this.salary = salary;
     }
 
     @Override
     public String toString() {
         return "ФИО: " + getFullName() + ". id: " + getId() + ". Отдел: " + getDepartment() + ". Зарплата: " + getSalary();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id && fullName.equals(employee.fullName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, id);
     }
 }
